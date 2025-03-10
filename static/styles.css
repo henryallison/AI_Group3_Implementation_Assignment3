@@ -1,7 +1,7 @@
 /* General Styles */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee, #84fab0, #8fd3f4); /* Rainbow gradient */
+    background: #1a1a1a; /* Deep dark background color */
     color: #ffffff; /* White text */
     margin: 0;
     padding: 0;
@@ -9,12 +9,15 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    background-attachment: fixed; /* Fix the background in one position */
+    background-size: cover; /* Cover the entire page */
 }
+
 /* Header */
 .header {
     width: 100%;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent black */
+    background-color: #333; /* Solid dark background for header */
     text-align: center;
     font-size: 15px; /* Reduced font size */
     font-weight: bold;
@@ -31,14 +34,15 @@ body {
 
 /* Navigation Link */
 .nav-link {
-    color: #10a37f; /* ChatGPT green */
+    color: #ffffff; /* ChatGPT green */
     text-decoration: none;
     font-weight: bold;
-    margin-top: 5px; /* Add space between header text and link */
+     /* Add space between header text and link */
     font-size: 14px; /* Reduced font size */
 }
 
 .nav-link:hover {
+    background-color: #2f0099;
     text-decoration: underline;
 }
 
@@ -145,21 +149,9 @@ body {
     z-index: 1000;
 }
 
-/* Navigation Link */
-.nav-link {
-    color: #10a37f; /* ChatGPT green */
-    text-decoration: none;
-    font-weight: bold;
-    margin-left: 15px;
-}
-
-.nav-link:hover {
-    text-decoration: underline;
-}
-
 /* About Container */
 .about-container {
-    color: black;
+    color: white;
     width: 100%;
     max-width: 800px;
     height: calc(100vh - 140px); /* Adjust height for header and footer */
