@@ -38,7 +38,7 @@ def predict_diagnosis(user_input):
     prediction = label_encoder.inverse_transform(prediction_encoded)[0]
 
     # Return the diagnosis
-    return f"Medical AI Response:\nDiagnosis: {prediction}"
+    return f"Medical AI Response:\n{prediction}"
 
 # Load the dataset (for treatment recommendations)
 df = pd.read_csv("disease_dataset.csv")
