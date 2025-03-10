@@ -185,9 +185,9 @@ body {
 
     /* Adjust chat container height */
     .chat-container {
-        height: calc(100vh - 120px); /* Reduce space for header and footer */
+        height: calc(100vh - 150px); /* Further reduce height for smaller screens */
         margin-top: 60px; /* Reduce space for header */
-        margin-bottom: 50px; /* Reduce space for footer */
+        margin-bottom: 70px; /* Increase space for footer */
     }
 
     /* Adjust message font size */
