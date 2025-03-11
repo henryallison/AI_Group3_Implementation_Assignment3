@@ -3,48 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Medical AI Chatbot</title>
+    <title>Medical AI Chatbot</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <!-- Header -->
     <div class="header">
-        About Malaria and HIV/AIDS AI Chatbot
-        <a href="{{ url_for('CHAT') }}" class="nav-link">Home</a>
+        Malaria and HIV/AIDS AI Prediction Chatbot
+        <a href="{{ url_for('index') }}" class="nav-link">About</a>
     </div>
 
-    <!-- About Container -->
-    <div class="about-container">
-        <!-- Content -->
-        <div class="content">
-            <p>Welcome to the Malaria and HIV/AIDS AI Prediction Chatbot! This chatbot is designed to assist you in the following ways:</p>
-            <ul>
-                <li>Predict potential diagnoses of Malaria and HIV/AIDS based on user input symptoms.</li>
-                <li>Provide general medical information about these diseases.</li>
-                <li>Engage in friendly conversations.</li>
-            </ul>
-            <p>Here are some example questions the chatbot can respond to:</p>
-            <ul>
-                <li>"What is Malaria?"</li>
-                <li>"What is HIV/AIDS?"</li>
-                <li>"Do HIV/AIDS have a cure?"</li>
-                <li>"Do Malaria have a cure?"</li>
-                <li>"What can I do if I have HIV?"</li>
-                <li>"What can I do if I have Malaria?"</li>
-                <li>"How can I get Malaria?"</li>
-                <li>"How can I prevent Malaria?"</li>
-                <li>"How can I get HIV?"</li>
-                <li>"How can I prevent HIV?"</li>
-                <li>"Hello!" (For friendly greetings)</li>
-                <li>"Bye!" (For farewells)</li>
-            </ul>
-            <p>Feel free to interact with the chatbot and explore its capabilities!</p>
+    <!-- Chat Container -->
+    <div class="chat-container">
+        <!-- Chat Box -->
+        <div class="chat-box" id="chat-box">
+            <!-- Default AI Message -->
+            <div class="message ai-message">Hi, welcome to Group3 AI chatbot! Provide some symptoms that you are experiencing to get a possible diagnoses and treatment recommendation.
+                Enter symptoms like fever, headache, sore throat, swollen lump, vomitting, chills and more. Click on the about link above, to view those questions that our ai is capable of answering</div>
+        </div>
+
+        <!-- Input Box -->
+        <div class="input-box">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
         </div>
     </div>
-
     <!-- Footer -->
     <div class="footer">
         This was developed by Group 3, Software Engineering (Year 3).
     </div>
+
+    <script>
+        function sendMessage() {
+            const userInput = document.getElementById("user-input").value;
+            if (!userInput) return;
+
+            // Add user message to chat box
+            const chatBox = document.getElementById("chat-box");
+            const userMessage = document.createElement("div");
+            userMessage.className = "message user-message";
+            userMessage.textContent = userInput;
+            chatBox.appendChild(userMessage);
+
+            // Clear input field
+            document.getElementById("user-input").value = "";
+
+            // Scroll to bottom of chat box
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            // Send user input to Flask backend
+            fetch("/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ message: userInput }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    // Add AI response to chat box
+                    const aiMessage = document.createElement("div");
+                    aiMessage.className = "message ai-message";
+                    aiMessage.textContent = data.response;
+                    chatBox.appendChild(aiMessage);
+
+                    // Scroll to bottom of chat box
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                });
+        }
+    </script>
 </body>
 </html>
