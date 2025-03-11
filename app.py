@@ -62,11 +62,11 @@ def chat():
     user_input = request.json["message"]
 
     # Check for greetings
-    greetings = ["hello", "hey", "sup", "bro", "big man", "dator", "pruh", "yo", "gee"]
+    greetings = ["hello", "hey", "sup", "bro", "big man", "dator", "pruh", "yo", "gee","how are you"]
     farewells = ["bye", "goodbye", "see you", "later"]
 
     if any(word in user_input.lower() for word in greetings):
-        ai_response = "How do you feel today?"
+        ai_response = "Hey there, all is well from my end today. What are those symptoms that you are experiencing today?"
     elif any(word in user_input.lower() for word in farewells):
         ai_response = "Goodbye, come again another time!"
 
