@@ -62,7 +62,7 @@ def chat():
     user_input = request.json["message"]
 
     # Check for greetings
-    greetings = ["hi","Hi","hello", "hey", "sup", "bro", "big man", "dator", "pruh", "yo", "gee","how are you"]
+    greetings = ["hello", "hey", "sup", "bro", "big man", "dator", "pruh", "yo", "gee","how are you"]
     farewells = ["bye", "goodbye", "see you", "later"]
     thanking = ["appreciate", "thanks","i am greatful"]
 
