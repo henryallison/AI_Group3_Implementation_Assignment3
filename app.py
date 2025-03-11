@@ -61,14 +61,45 @@ def about():
 def chat():
     user_input = request.json["message"]
 
-    # Check for greetings
-    greetings = ["hi", "hello", "hey", "sup", "bro", "big man"]
-    farewells = ["bye", "goodbye", "see you"]
+   # Check for greetings
+greetings = ["hi", "hello", "hey", "sup", "bro", "big man","dator","pruh","yo","my gee"]
+farewells = ["bye", "goodbye", "see you","later"]
 
-    if any(word in user_input.lower() for word in greetings):
-        ai_response = "How do you feel today?"
-    elif any(word in user_input.lower() for word in farewells):
-        ai_response = "Goodbye, come again another time!"
+if any(word in user_input.lower() for word in greetings):
+    ai_response = "How do you feel today?"
+elif any(word in user_input.lower() for word in farewells):
+    ai_response = "Goodbye, come again another time!"
+
+# Responses to specific questions
+elif "what is malarial" in user_input.lower():
+    ai_response = "Malaria is a life-threatening disease caused by Plasmodium parasites, transmitted through the bites of infected female Anopheles mosquitoes. Symptoms include fever, chills, and fatigue. It is common in tropical and subtropical regions."
+
+elif "what is hiv/aids" in user_input.lower():
+    ai_response = "HIV (Human Immunodeficiency Virus) is a virus that attacks the immune system, weakening the body's ability to fight infections. AIDS (Acquired Immunodeficiency Syndrome) is the final stage of HIV infection, where the immune system is severely damaged."
+
+elif "do hiv have a cure" in user_input.lower():
+    ai_response = "Currently, there is no cure for HIV, but it can be managed with antiretroviral therapy (ART). ART helps people with HIV live long, healthy lives and reduces the risk of transmitting the virus to others."
+
+elif "do malarial has a cure" in user_input.lower():
+    ai_response = "Yes, malaria is treatable with antimalarial drugs. The type of drug depends on the Plasmodium species and the severity of the disease. Early diagnosis and treatment are crucial to prevent complications."
+
+elif "what can i do if i have hiv" in user_input.lower():
+    ai_response = "If you have HIV, seek medical care immediately. Start antiretroviral therapy (ART) as prescribed, attend regular check-ups, maintain a healthy lifestyle, and practice safe sex to protect yourself and others."
+
+elif "what can i do if i have malarial" in user_input.lower():
+    ai_response = "If you have malaria, seek medical attention immediately. Take prescribed antimalarial medications, rest, stay hydrated, and avoid mosquito bites to prevent spreading the disease to others."
+
+elif "how can i get malarial" in user_input.lower():
+    ai_response = "You can get malaria through the bite of an infected female Anopheles mosquito. Rarely, it can also spread through blood transfusions, organ transplants, or from mother to child during pregnancy or childbirth."
+
+elif "how can i prevent malarial" in user_input.lower():
+    ai_response = "Prevent malaria by using insecticide-treated bed nets, applying mosquito repellent, wearing protective clothing, taking antimalarial prophylaxis if traveling to endemic areas, and eliminating mosquito breeding sites."
+
+elif "how can i get hiv" in user_input.lower():
+    ai_response = "HIV can be transmitted through unprotected sex, sharing needles, blood transfusions with infected blood, or from an HIV-positive mother to her child during pregnancy, childbirth, or breastfeeding."
+
+elif "how can i prevent hiv" in user_input.lower():
+    ai_response = "Prevent HIV by practicing safe sex (using condoms), avoiding sharing needles, getting tested regularly, and taking pre-exposure prophylaxis (PrEP) if at high risk. For HIV-positive mothers, medical care can prevent transmission to the baby."
     else:
         # Get AI response for symptoms
         ai_response = predict_diagnosis(user_input)
