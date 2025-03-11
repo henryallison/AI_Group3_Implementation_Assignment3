@@ -34,7 +34,7 @@ body {
 
 /* Navigation Link */
 .nav-link {
-    color: #ffffff; /* ChatGPT green */
+    color: yellow; /* ChatGPT green */
     text-decoration: none;
     font-weight: bold;
      /* Add space between header text and link */
