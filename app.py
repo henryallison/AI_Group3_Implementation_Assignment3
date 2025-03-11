@@ -64,11 +64,15 @@ def chat():
     # Check for greetings
     greetings = ["hi","Hi","hello", "hey", "sup", "bro", "big man", "dator", "pruh", "yo", "gee","how are you"]
     farewells = ["bye", "goodbye", "see you", "later"]
+    thanking = ["thank you", "thank you very much", "appreciate", "thanks","i am greatful"]
 
     if any(word in user_input.lower() for word in greetings):
         ai_response = "Hey there, all is well from my end today. What are those symptoms that you are experiencing today?"
     elif any(word in user_input.lower() for word in farewells):
         ai_response = "Goodbye, come again another time!"
+
+    elif any(word in user_input.lower() for word in thanking):
+        ai_response = "You're highly welcome dear!"
 
     # Responses to specific questions
     elif "what is malarial" in user_input.lower():
